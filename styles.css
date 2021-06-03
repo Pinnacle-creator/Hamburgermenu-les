@@ -2,15 +2,14 @@
     --menu-bar-width: 60px;
     --menu-bar-height: 10px;
 }
-
 #menu {
     background-color: #D84282;
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
+    margin-top: 20px;
+    transition: all .5s ease-in-out;
 }
-
 #menu::before,
 #menu::after {
     background-color: #D84282;
@@ -20,14 +19,34 @@
     height: var(--menu-bar-height);
     position: absolute;
 }
-
 #menu::before {
     left: 0;
     top: -20px;
+    transform: rotate(0deg);
+    transition: transform .5s, top .5s;
 }
-
 #menu::after {
     left: 0;
     top: 20px;
+    transform: rotate(0deg);
+    transition: transform .5s, top .5s;
 }
-
+#container {
+    width: 60px;
+    height: 50px;
+    margin: 50px;
+}
+#container:hover #menu {
+    background-color: transparent;
+    transition: background-color .5s;
+}
+#container:hover #menu::before {
+    transform: rotate(45deg);
+    top: 0px;
+    transition: transform .5s, top .5s;
+}
+#container:hover #menu::after {
+    transform: rotate(-45deg);
+    top: 0px;
+    transition: transform .5s, top .5s;
+}
